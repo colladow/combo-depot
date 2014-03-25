@@ -57,7 +57,7 @@
       for (i = 0, l = set.length; i < l; i += 1) {
         className = prefix + '-' + set[i];
 
-        classes[className] = '.' + className;
+        classes[className] = prefix;
       }
     }
 

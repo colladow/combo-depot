@@ -1,8 +1,20 @@
+.combo-builder {
+  font-family: helvetica, arial;
+  font-size: 14px;
+}
+
+.command-set {
+  font-weight: bold;
+  margin: 4px 0;
+  text-transform: uppercase;
+}
+
 .command {
   background-position: center center;
   background-repeat: no-repeat;
   cursor: pointer;
   display: inline-block;
+  margin: 0 4px 8px 0;
 }
 
 .command.stick-up {

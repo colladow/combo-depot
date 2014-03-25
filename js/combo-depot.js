@@ -7,6 +7,8 @@
 	};
 
   window.addEventListener('load', function() {
-    var builder = new ComboDepot.Builder();
+    var builder = new ComboDepot.Builder({
+      base: '.combo-builder'
+    });
   }.bind(this));
 }).call(this);

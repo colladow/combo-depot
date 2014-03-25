@@ -6,19 +6,26 @@
   </head>
 
   <body>
-    <div id="builder" class="builder">
+    <div class="combo-builder">
+      <input type="text" name="title" placeholder="Title">
+      <input type="text" name="game" placeholder="Game">
+      <input type="text" name="character" placeholder="Character">
+
+      <div class="builder">
+        <h3>Commands</h4>
+      </div>
+
+      <div class="preview">
+      </div>
+
+      <button class="undo">Undo</button>
+      <button class="print">Print</button>
+
+      <p>
+
+      <input type="text" class="commands">
+      <button class="load">Load</button>
     </div>
-
-    <div id="preview" class="preview">
-    </div>
-
-    <button id="undo">Undo</button>
-    <button id="print">Print</button>
-
-    <p>
-
-    <input type="text" id="commands">
-    <button id="load">Load</button>
 
     <script src="js/combo-depot.js"></script>
     <script src="js/buttons.js"></script>

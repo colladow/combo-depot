@@ -1,20 +1,75 @@
 'use strict';
 
 (function(ComboDepot) {
-	var History = function(target) {
-		this._history = [];
-		this._target = target;
+  var noop = function() {};
+
+  /**
+  * The History class wraps an Array and provides convenient callbacks
+  * for reacting to changes in the history.
+  *
+  * @class History
+  * @constructor
+  * @param {Object} opts Options to configure the History object.
+  */
+	var History = function(opts) {
+		this._history  = [];
+    this._onPush   = opts.onPush    || noop;
+    this._onPop    = opts.onPop     || noop;
+    this._onRemove = opts.onRemove  || noop;
 	};
 
-	History.prototype.push = function(node) {
-		this._target.appendChild(node);
+  /**
+  * Push a new node into the history.
+  *
+  * @method push
+  * @param {*} node A thing to store in history.
+  * @param {Function} callback An optional callback function to override onPush.
+  * @public
+  */
+	History.prototype.push = function(node, callback) {
 		this._history.push(node);
+    callback = callback || this._onPush;
+    callback(node);
 	};
 
-	History.prototype.pop = function() {
-		this._target.removeChild(this._history.pop());
+  /**
+  * Pops the last event off the history.
+  *
+  * @method pop
+  * @param {Function} callback An optional callback to override onPop.
+  * @public
+  */
+	History.prototype.pop = function(callback) {
+    callback = callback || this._onPop;
+		callback(this._history.pop());
 	};
 
+  /**
+  * Removes a specific node from the history.
+  *
+  * @method remove
+  * @param {*} node The thing to be removed from history.
+  * @param {Function} callback An optional callback to override onRemove.
+  * @public
+  */
+  History.prototype.remove = function(node, callback) {
+    var index = this._history.indexOf(node);
+
+    if (index === -1) {
+      return;
+    }
+
+    callback = callback || this._onRemove;
+    this._history.splice(index, 1);
+    callback(node);
+  };
+
+  /**
+  * Purges the history and empties the array.
+  *
+  * @method purge
+  * @public
+  */
 	History.prototype.purge = function() {
 		this._history = [];
 	};
@@ -43,7 +98,6 @@
 		}
 
 		return JSON.stringify(data);
-
 	};
 
 	ComboDepot.History = History;

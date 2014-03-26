@@ -37,7 +37,9 @@
       'medium',
       'heavy',
       'special',
-      'attack'
+      'attack',
+      'assist-1',
+      'assist-2'
     ],
     SEPARATORS: [
       'plus',

@@ -170,34 +170,48 @@
   height: 20px;
   width: 21px;
 }
+.command.umvc3-assist-1 {
+  background-image: url(../img/buttons/umvc3/A1.png);
+  height: 20px;
+  width: 21px;
+}
+.command.umvc3-assist-2 {
+  background-image: url(../img/buttons/umvc3/A2.png);
+  height: 20px;
+  width: 21px;
+}
 
 .command.separators-plus {
   height: 20px;
-  width: 20px;
+  text-align: center;
+  width: 16px;
 }
 .command.separators-plus:before {
   content: '+';
   font-size: 18px;
 }
 .command.separators-comma {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  text-align: center;
+  width: 10px;
 }
 .command.separators-comma:before {
   content: ',';
   font-size: 18px;
 }
 .command.separators-open-parens {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  text-align: center;
+  width: 15px;
 }
 .command.separators-open-parens:before {
   content: '(';
   font-size: 18px;
 }
 .command.separators-close-parens {
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  text-align: center;
+  width: 15px;
 }
 .command.separators-close-parens:before {
   content: ')';

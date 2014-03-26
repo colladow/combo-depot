@@ -32,9 +32,7 @@
     }.bind(this);
 
     this._history = new ComboDepot.History({
-      onPush: function(node) {
-        this._preview.appendChild(node);
-      }.bind(this),
+      onPush: this._addCommand.bind(this),
       onPop: removeCommand,
       onRemove: removeCommand
     });
@@ -133,6 +131,22 @@
       this.destroy();
       this._history.load(this._commands.value, Builder.prototype._renderCommand);
     }.bind(this));
+  };
+
+  Builder.prototype._addCommand = function(node) {
+    var isPlus = node.dataset.command.indexOf('separators') === 0;
+    var children;
+
+    if (isPlus) {
+      children = Array.prototype.slice.call(this._preview.children);
+      this._preview.removeChild(children.pop());
+    }
+
+    this._preview.appendChild(node);
+
+    if (!isPlus) {
+      this._preview.appendChild(this._renderCommand('separators-comma'));
+    }
   };
 
   /**

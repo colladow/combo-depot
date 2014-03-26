@@ -134,19 +134,7 @@
   };
 
   Builder.prototype._addCommand = function(node) {
-    var isPlus = node.dataset.command.indexOf('separators') === 0;
-    var children;
-
-    if (isPlus) {
-      children = Array.prototype.slice.call(this._preview.children);
-      this._preview.removeChild(children.pop());
-    }
-
     this._preview.appendChild(node);
-
-    if (!isPlus) {
-      this._preview.appendChild(this._renderCommand('separators-comma'));
-    }
   };
 
   /**

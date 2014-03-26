@@ -38,6 +38,12 @@
       'heavy',
       'special',
       'attack'
+    ],
+    SEPARATORS: [
+      'plus',
+      'comma',
+      'open-parens',
+      'close-parens'
     ]
   };
 
